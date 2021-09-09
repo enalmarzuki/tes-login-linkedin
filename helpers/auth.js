@@ -7,18 +7,18 @@ const LINKEDIN_CLIENT_ID = process.env.LINKEDIN_CLIENT_ID;
 export const getURLWithQueryParams = (base, params) => {
   const query = Object.entries(params)
     .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
-    .join("&");
+    .join('&');
 
   return `${base}?${query}`;
 };
 
 export const LINKEDIN_URL = getURLWithQueryParams(
-  "https://www.linkedin.com/oauth/v2/authorization",
+  'https://www.linkedin.com/oauth/v2/authorization',
   {
-    response_type: "code",
+    response_type: 'code',
     client_id: LINKEDIN_CLIENT_ID,
     redirect_uri: LINKEDIN_REDIRECT,
     state: LINKEDIN_STATE,
-    scope: LINKEDIN_SCOPE
+    scope: LINKEDIN_SCOPE,
   }
 );
